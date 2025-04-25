@@ -1,18 +1,54 @@
 document.addEventListener('DOMContentLoaded', function() {
+    if (typeof appData === 'undefined') {
+        window.appData = {
+            games: { categories: ['all'], apps: [] },
+            programs: { categories: ['all'], apps: [] },
+            utilities: { categories: ['all'], apps: [] },
+            others: { categories: ['all'], apps: [] }
+        };
+    }
+
     if (localStorage.getItem('admin_mode') === 'true') {
         initializeAdminInterface();
     }
     
     document.addEventListener('keydown', function(e) {
+        console.log('Key pressed:', e.key, 'Ctrl:', e.ctrlKey, 'Shift:', e.shiftKey);
         if (e.ctrlKey && e.shiftKey && e.key === 'A') {
+            console.log('Admin hotkey triggered');
             toggleAdminMode();
         }
     });
 });
 
+const toastStyles = document.createElement('style');
+toastStyles.textContent = `
+    .toast {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%) translateY(100px);
+        background-color: var(--primary, #4CAF50);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 4px;
+        opacity: 0;
+        transition: transform 0.3s, opacity 0.3s;
+        z-index: 1100;
+    }
+    
+    .toast.show {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+`;
+document.head.appendChild(toastStyles);
+
 function toggleAdminMode() {
     const currentMode = localStorage.getItem('admin_mode') === 'true';
+    console.log('Current admin mode:', currentMode);
     localStorage.setItem('admin_mode', !currentMode);
+    console.log('New admin mode:', !currentMode);
     
     if (!currentMode) {
         initializeAdminInterface();
@@ -212,6 +248,7 @@ function initializeAdminInterface() {
     document.body.appendChild(backdrop);
     
     adminButton.addEventListener('click', function() {
+        console.log('Admin button clicked');
         adminPanel.classList.add('show');
         backdrop.classList.add('show');
     });
