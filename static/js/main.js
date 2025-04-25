@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('DOMContentLoaded', function() {
     initializeSection('games');
     initializeSection('programs');
     initializeSection('utilities');
@@ -353,7 +353,7 @@ function setupSearch() {
             }
         });
         
-        document.addEventListener('click', function(e) {
+        window.addEventListener('click', function(e) {
             if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
                 searchResults.innerHTML = '';
                 searchResults.style.display = 'none';
@@ -386,7 +386,7 @@ Element.prototype.contains = function(text) {
     return this.textContent.includes(text);
 };
 
-document.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('DOMContentLoaded', function() {
     const originalInit = initializeSection;
     
     window.initializeSection = function(sectionId) {
