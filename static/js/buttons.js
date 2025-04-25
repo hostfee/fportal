@@ -49,6 +49,9 @@ const downloadUrls = {
     "Wallpapers": "https://drive.google.com/file/d/1MdcU6Xp01TCk8rqZXU_JEvwt19VMTpVT/view?usp=sharing",
     "MAS" : "https://github.com/massgravel/Microsoft-Activation-Scripts",
     "Malwarebytes" : "https://www.malwarebytes.com/mwb-download/thankyou",
+    "ToDoApp" : "https://github.com/feeww/ToDoApp/releases",
+    "Wave-Player" : "https://github.com/feeww/Wave-Player/releases",
+    "Spicetify" : "https://spicetify.app/",
     
 };
 
