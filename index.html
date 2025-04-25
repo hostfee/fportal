@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-
     <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
@@ -12,7 +11,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FPortal</title>
     <link rel="stylesheet" href="static/styles/main.css"> 
-
 </head>
 <body>
     <header>
@@ -26,325 +24,69 @@
                 <a href="#utilities">Utility</a>
                 <a href="#others">Others</a>
             </div>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </nav>
+        <div class="mobile-menu">
+            <a href="#games">Games</a>
+            <a href="#programs">Software</a>
+            <a href="#utilities">Utility</a>
+            <a href="#others">Others</a>
+        </div>
     </header>
     
     <main>
         <section id="games">
             <h2 class="section-title">🎮 Games</h2>
-            <div class="category-tabs">
-                <div class="category-tab active" data-filter="all">All</div>
-                <div class="category-tab" data-filter="minecraft">Minecraft</div>
-                <div class="category-tab"data-filter="roblox">Roblox</div>
+            <div class="category-tabs" id="games-tabs">
             </div>
             
-            <div class="cards-grid">
-                <div class="app-card" data-category="minecraft">
-                    <div class="app-image">
-                        <img src="static/images/games/minecraftbedrock.webp" alt="Minecraft">
-                    </div>
-                    <div class="app-info">
-                        <h3 class="app-name">Minecraft</h3>
-                        <p class="app-description">Bedrock Edition</p>
-                        <div class="app-meta">
-                            <span>Version: 1.21</span>
-                            <span>1.2 GB</span>
-                        </div>
-                        <button class="download-btn">⬇️ Download</button>
-                    </div>
-                </div>
-
-                <div class="app-card" data-category="minecraft">
-                    <div class="app-image">
-                        <img src="static/images/games/prism.webp" alt="Prism">
-                    </div>
-                    <div class="app-info">
-                        <h3 class="app-name">Prism</h3>
-                        <p class="app-description">Minecraft Launcher</p>
-                        <div class="app-meta">
-                            <span>Version: 9.4</span>
-                            <span>22 MB</span>
-                        </div>
-                        <button class="download-btn">⬇️ Download</button>
-                    </div>
-                </div>
-                
-                <div class="app-card" data-category="roblox">
-                    <div class="app-image">
-                        <img src="static/images/games/delta.png" alt="Delta">
-                    </div>
-                    <div class="app-info">
-                        <h3 class="app-name">Delta</h3>
-                        <p class="app-description">Roblox Executor</p>
-                        <div class="app-meta">
-                            <span>Version: Updated</span>
-                            <span>~250 MB</span>
-                        </div>
-                        <button class="download-btn">⬇️ Download</button>
-                    </div>
-                </div>
-                
-                <div class="app-card" data-category="roblox">
-                    <div class="app-image">
-                        <img src="static/images/games/krnl.png" alt="Krnl">
-                    </div>
-                    <div class="app-info">
-                        <h3 class="app-name">Krnl</h3>
-                        <p class="app-description">Roblox Executor</p>
-                        <div class="app-meta">
-                            <span>Version: Updated</span>
-                            <span>~265 MB</span>
-                        </div>
-                        <button class="download-btn">⬇️ Download</button>
-                    </div>
-                </div>
+            <div class="cards-grid" id="games-grid">
             </div>
         </section>
         
         <section id="programs">
             <h2 class="section-title">💻 Software</h2>
-            <div class="category-tabs">
-                <div class="category-tab active" data-filter="all">All</div>
-                <div class="category-tab" data-filter="office">Office</div>
-                <div class="category-tab" data-filter="multimedia">Multimedia</div>
+            <div class="category-tabs" id="programs-tabs">
             </div>
             
-            <div class="cards-grid">
-                <div class="app-card" data-category="multimedia">
-                    <div class="app-image">
-                        <img src="static/images/software/wallpaperengine.png" alt="Wallpaper Engine">
-                    </div>
-                    <div class="app-info">
-                        <h3 class="app-name">Wallpaper Engine</h3>
-                        <p class="app-description">Live Wallpapers(free)</p>
-                        <a href="https://www.wallpaperengine.io/en" class="app-description" target="_blank">Original</a>
-                        <div class="app-meta">
-                            <span>Version: 2.6.21</span>
-                            <span>255 MB</span>
-                        </div>
-                        <button class="download-btn">⬇️ Download</button>
-                    </div>
-                </div>
-                
-                <div class="app-card" data-category="multimedia">
-                    <div class="app-image">
-                        <img src="static/images/software/rainmeter.png" alt="Rainmeter">
-                    </div>
-                    <div class="app-info">
-                        <h3 class="app-name">Rainmeter</h3>
-                        <p class="app-description">Clock Skin</p>
-                        <div class="app-meta">
-                            <span>Version: 4.5.23</span>
-                            <span>512 MB</span>
-                        </div>
-                        <button class="download-btn">⬇️ Download</button>
-                    </div>
-                </div>
-                
-                <div class="app-card" data-category="office">
-                    <div class="app-image">
-                        <img src="static/images/software/office.png" alt="Microsoft Office">
-                    </div>
-                    <div class="app-info">
-                        <h3 class="app-name">Microsoft Office</h3>
-                        <p class="app-description">Office 365</p>
-                        <div class="app-meta">
-                            <span>Version: 2024</span>
-                            <span>4.5 GB</span>
-                        </div>
-                        <button class="download-btn">⬇️ Download</button>
-                    </div>
-                </div>
-                
-                <div class="app-card" data-category="multimedia">
-                    <div class="app-image">
-                        <img src="static/images/software/ShareX.png" alt="Share X">
-                    </div>
-                    <div class="app-info">
-                        <h3 class="app-name">Share X</h3>
-                        <p class="app-description">Screenshot Tool</p>
-                        <div class="app-meta">
-                            <span>Version: 17.0</span>
-                            <span>50 MB</span>
-                        </div>
-                        <button class="download-btn">⬇️ Download</button>
-                    </div>
-                </div>
-
-                <div class="app-card" data-category="">
-                    <div class="app-image">
-                        <img src="static/images/software/todoapp.png" alt="ToDoApp">
-                    </div>
-                    <div class="app-info">
-                        <h3 class="app-name">ToDoApp</h3>
-                        <p class="app-description">Simple ToDoList</p>
-                        <div class="app-meta">
-                            <span>Version: 1.0</span>
-                            <span>100 KB</span>
-                        </div>
-                        <button class="download-btn">⬇️ Download</button>
-                    </div>
-                </div>
-
-                <div class="app-card" data-category="multimedia">
-                    <div class="app-image">
-                        <img src="static/images/software/waveplayer.png" alt="Wave-Player">
-                    </div>
-                    <div class="app-info">
-                        <h3 class="app-name">Wave-Player</h3>
-                        <p class="app-description">Simple Offline Music Player</p>
-                        <div class="app-meta">
-                            <span>Version: 1.1.1</span>
-                            <span>1.1 MB</span>
-                        </div>
-                        <button class="download-btn">⬇️ Download</button>
-                    </div>
-                </div>
+            <div class="cards-grid" id="programs-grid">
             </div>
         </section>
         
         <section id="utilities">
             <h2 class="section-title">🔧 Utilities</h2>
-            <div class="category-tabs">
-                <div class="category-tab active" data-filter="all">All</div>
-                <div class="category-tab" data-filter="system">System</div>
-                <div class="category-tab" data-filter="security">Security</div>
+            <div class="category-tabs" id="utilities-tabs">
             </div>
             
-            <div class="cards-grid">
-                <div class="app-card" data-category="security">
-                    <div class="app-image">
-                        <img src="static/images/utilities/ccleaner.png" alt="CCleaner">
-                    </div>
-                    <div class="app-info">
-                        <h3 class="app-name">CCleaner</h3>
-                        <p class="app-description">System Cleaner</p>
-                        <div class="app-meta">
-                            <span>Version: 6.35.11488</span>
-                            <span>86 MB</span>
-                        </div>
-                        <button class="download-btn">⬇️ Download</button>
-                    </div>
-                </div>
-                
-                <div class="app-card" data-category="security">
-                    <div class="app-image">
-                        <img src="static/images/utilities/malwarebytes.jpg" alt="Malwarebytes">
-                    </div>
-                    <div class="app-info">
-                        <h3 class="app-name">Malwarebytes</h3>
-                        <p class="app-description">Antivirus</p>
-                        <div class="app-meta">
-                            <span>Version: 5.2.11</span>
-                            <span>500 MB</span>
-                        </div>
-                        <button class="download-btn">⬇️ Download</button>
-                    </div>
-                </div>
-
-                <div class="app-card">
-                    <div class="app-image" data-category="">
-                        <img src="static/images/utilities/winrar.png" alt="WinRAR">
-                    </div>
-                    <div class="app-info">
-                        <h3 class="app-name">WinRAR</h3>
-                        <p class="app-description">Archiver</p>
-                        <div class="app-meta">
-                            <span>Version: 7.11</span>
-                            <span>3.6 MB</span>
-                        </div>
-                        <button class="download-btn">⬇️ Download</button>
-                    </div>
-                </div>
-                
-                <div class="app-card" data-category="system">
-                    <div class="app-image">
-                        <img src="static/images/utilities/msiafterburner.png" alt="MSI Afterburner">
-                    </div>
-                    <div class="app-info">
-                        <h3 class="app-name">MSI Afterburner</h3>
-                        <p class="app-description">GPU Utility</p>
-                        <div class="app-meta">
-                            <span>Version: 4.6.5</span>
-                            <span>70 MB</span>
-                        </div>
-                        <button class="download-btn">⬇️ Download</button>
-                    </div>
-                </div>
-                
-                <div class="app-card" data-category="system">
-                    <div class="app-image">
-                        <img src="static/images/utilities/GPU-Z.png" alt="GPU-Z">
-                    </div>
-                    <div class="app-info">
-                        <h3 class="app-name">GPU-Z</h3>
-                        <p class="app-description">Hardware Info</p>
-                        <div class="app-meta">
-                            <span>Version: 2.65.1</span>
-                            <span>10.9 MB</span>
-                        </div>
-                        <button class="download-btn">⬇️ Download</button>
-                    </div>
-                </div>
-                <div class="app-card" data-category="">
-                    <div class="app-image">
-                        <img src="static/images/utilities/MAS.png" alt="MAS">
-                    </div>
-                    <div class="app-info">
-                        <h3 class="app-name">MAS</h3>
-                        <p class="app-description">Microsoft Activation Script</p>
-                        <div class="app-meta">
-                            <span>Version: 3.0</span>
-                            <span></span>
-                        </div>
-                        <button class="download-btn">⬇️ Download</button>
-                    </div>
-                </div>
-
-                <div class="app-card" data-category="">
-                    <div class="app-image">
-                        <img src="static/images/utilities/spicetify.png" alt="Spicetify">
-                    </div>
-                    <div class="app-info">
-                        <h3 class="app-name">Spicetify</h3>
-                        <p class="app-description">Extension for Spotify</p>
-                        <div class="app-meta">
-                            <span>Version: 2.40.4</span>
-                            <span></span>
-                        </div>
-                        <button class="download-btn">⬇️ Download</button>
-                    </div>
-                </div>
+            <div class="cards-grid" id="utilities-grid">
             </div>
         </section>
+        
         <section id="others">
             <h2 class="section-title">🎨 Others</h2>
-            <div class="category-tabs">
-                <div class="category-tab active" data-filter="all">All</div>
+            <div class="category-tabs" id="others-tabs">
             </div>
             
-            <div class="cards-grid">
-                <div class="app-card" data-category="">
-                    <div class="app-image">
-                        <img src="static/images/others/wallpapers.png" alt="wallpapers">
-                    </div>
-                    <div class="app-info">
-                        <h3 class="app-name">Wallpapers</h3>
-                        <p class="app-description">Archive of wallpapers</p>
-                        <div class="app-meta">
-                            <span>Version: 1.0</span>
-                            <span>1.7 GB</span>
-                        </div>
-                        <button class="download-btn">⬇️ Download</button>
-                    </div>
-                </div>
+            <div class="cards-grid" id="others-grid">
             </div>
         </section>
+        
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search apps...">
+            <div id="searchResults" class="search-results"></div>
+        </div>
     </main>
     
     <footer>
         <p>© 2025 FPortal | Personal Collection of Software</p>
     </footer>
-    <script src="static/js/buttons.js"></script>
+
+    <script src="static/js/data.js"></script>
+    <script src="static/js/main.js"></script>
+    <script src="static/js/admin.js"></script>
 </body>
 </html>
