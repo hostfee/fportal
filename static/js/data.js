@@ -37,6 +37,16 @@ const appData = {
           "size": "~265 MB",
           "image": "static/images/games/krnl.png",
           "downloadUrl": "https://krnl.cat/"
+        },
+        {
+          "name": "Bloxstrap",
+          "description": "Roblox Launcher",
+          "category": "roblox",
+          "version": "2.9.0",
+          "size": "471 MB",
+          "isNew": true,
+          "image": "static/images/games/bloxstrap.png",
+          "downloadUrl": "https://github.com/bloxstraplabs/bloxstrap/releases/tag/v2.9.0"
         }
       ]
     },
