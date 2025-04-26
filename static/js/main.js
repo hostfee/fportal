@@ -353,36 +353,45 @@ function setupSearch() {
                             sectionElement.scrollIntoView({ behavior: 'smooth' });
                             
                             setTimeout(() => {
-                                const grid = document.getElementById(`${section}-grid`);
-                                const appCards = grid.querySelectorAll('.app-card');
-                                let targetCard = null;
+                                const allCategoryTab = document.querySelector(`#${section}-tabs .category-tab[data-filter="all"]`) || 
+                                                     document.querySelector(`#${section}-tabs .category-tab:first-child`);
                                 
-                                appCards.forEach(card => {
-                                    const cardName = card.querySelector('.app-name');
-                                    if (cardName && cardName.textContent === name) {
-                                        targetCard = card;
-                                    }
-                                });
+                                if (allCategoryTab) {
+                                    allCategoryTab.click();
+                                }
                                 
-                                if (targetCard) {
-                                    const scrollLeft = targetCard.offsetLeft - (grid.clientWidth / 2) + (targetCard.clientWidth / 2);
-                                    grid.scrollTo({
-                                        left: scrollLeft,
-                                        behavior: 'smooth'
+                                setTimeout(() => {
+                                    const grid = document.getElementById(`${section}-grid`);
+                                    const appCards = grid.querySelectorAll('.app-card');
+                                    let targetCard = null;
+                                    
+                                    appCards.forEach(card => {
+                                        const cardName = card.querySelector('.app-name');
+                                        if (cardName && cardName.textContent === name) {
+                                            targetCard = card;
+                                        }
                                     });
                                     
-                                    setTimeout(() => {
-                                        document.querySelectorAll('.search-highlight').forEach(el => {
-                                            el.classList.remove('search-highlight');
+                                    if (targetCard) {
+                                        const scrollLeft = targetCard.offsetLeft - (grid.clientWidth / 2) + (targetCard.clientWidth / 2);
+                                        grid.scrollTo({
+                                            left: scrollLeft,
+                                            behavior: 'smooth'
                                         });
                                         
-                                        targetCard.classList.add('search-highlight');
-                                        
                                         setTimeout(() => {
-                                            targetCard.classList.remove('search-highlight');
-                                        }, 2000);
-                                    }, 300);
-                                }
+                                            document.querySelectorAll('.search-highlight').forEach(el => {
+                                                el.classList.remove('search-highlight');
+                                            });
+                                            
+                                            targetCard.classList.add('search-highlight');
+                                            
+                                            setTimeout(() => {
+                                                targetCard.classList.remove('search-highlight');
+                                            }, 2000);
+                                        }, 300);
+                                    }
+                                }, 300); 
                             }, 500);
                         }
                         
