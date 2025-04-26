@@ -329,18 +329,40 @@ function setupSearch() {
                         const section = this.getAttribute('data-section');
                         const name = this.getAttribute('data-name');
                         
-                        document.querySelector(`a[href="#${section}"]`).click();
-                        
-                        setTimeout(() => {
-                            const appCard = document.querySelector(`.app-card .app-name:contains('${name}')`).closest('.app-card');
-                            if (appCard) {
-                                appCard.scrollIntoView({ behavior: 'smooth' });
-                                appCard.classList.add('highlight');
-                                setTimeout(() => {
-                                    appCard.classList.remove('highlight');
-                                }, 2000);
-                            }
-                        }, 500);
+                        const sectionElement = document.getElementById(section);
+                        if (sectionElement) {
+                            sectionElement.scrollIntoView({ behavior: 'smooth' });
+                            
+                            setTimeout(() => {
+                                const grid = document.getElementById(`${section}-grid`);
+                                const appCards = grid.querySelectorAll('.app-card');
+                                let targetCard = null;
+                                
+                                appCards.forEach(card => {
+                                    const cardName = card.querySelector('.app-name');
+                                    if (cardName && cardName.textContent === name) {
+                                        targetCard = card;
+                                    }
+                                });
+                                
+                                if (targetCard) {
+                                    const cardRect = targetCard.getBoundingClientRect();
+                                    const gridRect = grid.getBoundingClientRect();
+                                    
+                                    const scrollLeft = targetCard.offsetLeft - (gridRect.width / 2) + (cardRect.width / 2);
+                                    
+                                    grid.scrollTo({
+                                        left: scrollLeft,
+                                        behavior: 'smooth'
+                                    });
+                                    
+                                    targetCard.classList.add('highlight');
+                                    setTimeout(() => {
+                                        targetCard.classList.remove('highlight');
+                                    }, 2000);
+                                }
+                            }, 500);
+                        }
                         
                         searchInput.value = '';
                         searchResults.innerHTML = '';
@@ -411,3 +433,58 @@ window.addEventListener('DOMContentLoaded', function() {
         }
     };
 });
+
+document.querySelectorAll('.app-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left; 
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = (y - centerY) / 10;
+        const rotateY = (centerX - x) / 10;
+        
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+    });
+    
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+    });
+});
+
+document.querySelectorAll('nav a, .mobile-menu a').forEach(link => {
+    link.addEventListener('click', e => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        
+        window.scrollTo({
+            top: targetSection.offsetTop - 80,
+            behavior: 'smooth'
+        });
+        
+        targetSection.classList.add('highlight-section');
+        setTimeout(() => {
+            targetSection.classList.remove('highlight-section');
+        }, 1000);
+    });
+});
+
+const observeElements = () => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    document.querySelectorAll('.js-inview, section').forEach(el => {
+        observer.observe(el);
+        el.classList.add('js-inview');
+    });
+};
+
+document.addEventListener('DOMContentLoaded', observeElements);
