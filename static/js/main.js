@@ -285,6 +285,25 @@ function setupSearch() {
     const searchInput = document.getElementById('searchInput');
     const searchResults = document.getElementById('searchResults');
     
+    if (!document.getElementById('search-animation-styles')) {
+        const styleSheet = document.createElement('style');
+        styleSheet.id = 'search-animation-styles';
+        styleSheet.innerHTML = `
+            @keyframes single-pulse {
+                0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(66, 133, 244, 0.7); }
+                50% { transform: scale(1.05); box-shadow: 0 0 15px 5px rgba(66, 133, 244, 0.7); }
+                100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(66, 133, 244, 0); }
+            }
+            
+            .search-highlight {
+                animation: single-pulse 1.5s ease-in-out forwards;
+                border: 2px solid #4285f4;
+                z-index: 10;
+            }
+        `;
+        document.head.appendChild(styleSheet);
+    }
+    
     if (searchInput && searchResults) {
         searchInput.addEventListener('input', function() {
             const query = this.value.toLowerCase().trim();
@@ -346,20 +365,23 @@ function setupSearch() {
                                 });
                                 
                                 if (targetCard) {
-                                    const cardRect = targetCard.getBoundingClientRect();
-                                    const gridRect = grid.getBoundingClientRect();
-                                    
-                                    const scrollLeft = targetCard.offsetLeft - (gridRect.width / 2) + (cardRect.width / 2);
-                                    
+                                    const scrollLeft = targetCard.offsetLeft - (grid.clientWidth / 2) + (targetCard.clientWidth / 2);
                                     grid.scrollTo({
                                         left: scrollLeft,
                                         behavior: 'smooth'
                                     });
                                     
-                                    targetCard.classList.add('highlight');
                                     setTimeout(() => {
-                                        targetCard.classList.remove('highlight');
-                                    }, 2000);
+                                        document.querySelectorAll('.search-highlight').forEach(el => {
+                                            el.classList.remove('search-highlight');
+                                        });
+                                        
+                                        targetCard.classList.add('search-highlight');
+                                        
+                                        setTimeout(() => {
+                                            targetCard.classList.remove('search-highlight');
+                                        }, 2000);
+                                    }, 300);
                                 }
                             }, 500);
                         }
