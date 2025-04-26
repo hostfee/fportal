@@ -41,7 +41,7 @@ const appData = {
       ]
     },
     "programs": {
-      "categories": ["all", "office", "multimedia"],
+      "categories": ["all", "office", "adobe", "multimedia"],
       "apps": [
         {
           "name": "Wallpaper Engine",
@@ -86,6 +86,7 @@ const appData = {
           "category": "",
           "version": "1.0",
           "size": "100 KB",
+          "isNew": true,
           "image": "static/images/software/todoapp.png",
           "downloadUrl": "https://github.com/feeww/ToDoApp/releases"
         },
@@ -97,6 +98,56 @@ const appData = {
           "size": "1.1 MB",
           "image": "static/images/software/waveplayer.png",
           "downloadUrl": "https://github.com/feeww/Wave-Player/releases"
+        },
+        {
+          "name": "Adobe Illustrator",
+          "description": "Vector Graphics Editor",
+          "category": "adobe",
+          "version": "29.4.0.152",
+          "size": "3.76 GB",
+          "isNew": true,
+          "image": "static/images/software/adobeillustrator.webp",
+          "downloadUrl": "https://drive.google.com/file/d/17yuzItrnJYlKXWaKxLkoXEtD81T7VAcX/view?usp=sharing"
+        },
+        {
+          "name": "Adobe Photoshop",
+          "description": "Image Editor",
+          "category": "adobe",
+          "version": "26.5.0.16",
+          "size": "4.96 GB",
+          "isNew": true,
+          "image": "static/images/software/adobephotoshop.png",
+          "downloadUrl": "https://drive.google.com/file/d/1kWqaFORdWWwFAhGEBgpwUb4uYXJ-szy3/view?usp=sharing"
+        },
+        {
+          "name": "Adobe Premiere Pro",
+          "description": "Video Editor",
+          "category": "adobe",
+          "version": "25.2.1",
+          "size": "1.37 GB",
+          "isNew": true,
+          "image": "static/images/software/adobepremiere.png",
+          "downloadUrl": "https://drive.google.com/file/d/11n_ZWCRqptseYWppPX4gK4fSaZ3tFg2k/view?usp=sharing"
+        },
+        {
+          "name": "Adobe After Effects",
+          "description": "Video Editor",
+          "category": "adobe",
+          "version": "24.6.2.002",
+          "size": "3.51 GB",
+          "isNew": true,
+          "image": "static/images/software/adobeaftereffects.png",
+          "downloadUrl": "https://drive.google.com/file/d/144KhesG58sd7yjUpYtrNrTNfoEQIMzH9/view?usp=sharing"
+        },
+        {
+          "name": "Adobe Acrobat Pro",
+          "description": "PDF Editor",
+          "category": "adobe",
+          "version": "2025.001.20435",
+          "size": "1.05 GB",
+          "isNew": true,
+          "image": "static/images/software/adobeacrobat.png",
+          "downloadUrl": "https://drive.google.com/file/d/1Wv05t0CaZxC2NKAcUkX8Av53mlzJTM3r/view?usp=sharing"
         }
       ]
     },

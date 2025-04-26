@@ -176,20 +176,22 @@ function generateAppCards(sectionId, container, apps) {
         card.setAttribute('data-category', app.category);
         
         card.innerHTML = `
-            <div class="app-image">
-                <img src="${app.image}" alt="${app.name}" loading="lazy">
+        ${app.isNew ? `<div class="new-badge">New</div>` : ''}
+        <div class="app-image">
+            <img src="${app.image}" alt="${app.name}" loading="lazy">
+        </div>
+        <div class="app-info">
+            <h3 class="app-name">${app.name}</h3>
+            <p class="app-description">${app.description}</p>
+            ${app.originalUrl ? `<a href="${app.originalUrl}" class="app-description" target="_blank">Original</a>` : ''}
+            <div class="app-meta">
+                <span>Version: ${app.version}</span>
+                <span>${app.size}</span>
             </div>
-            <div class="app-info">
-                <h3 class="app-name">${app.name}</h3>
-                <p class="app-description">${app.description}</p>
-                ${app.originalUrl ? `<a href="${app.originalUrl}" class="app-description" target="_blank">Original</a>` : ''}
-                <div class="app-meta">
-                    <span>Version: ${app.version}</span>
-                    <span>${app.size}</span>
-                </div>
-                <button class="download-btn" data-app-name="${app.name}" data-download-url="${app.downloadUrl}">⬇️ Download</button>
-            </div>
-        `;
+            <button class="download-btn" data-app-name="${app.name}" data-download-url="${app.downloadUrl}">⬇️ Download</button>
+        </div>
+    `;
+    
         
         container.appendChild(card);
     });
