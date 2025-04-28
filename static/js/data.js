@@ -44,7 +44,6 @@ const appData = {
           "category": "roblox",
           "version": "2.9.0",
           "size": "471 MB",
-          "isNew": true,
           "image": "static/images/games/bloxstrap.png",
           "downloadUrl": "https://github.com/bloxstraplabs/bloxstrap/releases/tag/v2.9.0"
         },
@@ -54,6 +53,7 @@ const appData = {
           "category": "",
           "version": "1.16.0",
           "size": "60 GB",
+          "isNew": true,
           "image": "static/images/games/eldenring.webp",
           "downloadUrl": "https://drive.google.com/file/d/1sznR2khZiRCV3UoKMLy07DIxx9_zI3b6/view?usp=sharing"
         }
@@ -105,7 +105,6 @@ const appData = {
           "category": "",
           "version": "1.0",
           "size": "100 KB",
-          "isNew": true,
           "image": "static/images/software/todoapp.png",
           "downloadUrl": "https://github.com/feeww/ToDoApp/releases"
         },
@@ -124,7 +123,6 @@ const appData = {
           "category": "adobe",
           "version": "29.4.0.152",
           "size": "3.76 GB",
-          "isNew": true,
           "image": "static/images/software/adobeillustrator.webp",
           "downloadUrl": "https://drive.google.com/file/d/17yuzItrnJYlKXWaKxLkoXEtD81T7VAcX/view?usp=sharing"
         },
@@ -134,7 +132,6 @@ const appData = {
           "category": "adobe",
           "version": "26.5.0.16",
           "size": "4.96 GB",
-          "isNew": true,
           "image": "static/images/software/adobephotoshop.png",
           "downloadUrl": "https://drive.google.com/file/d/1kWqaFORdWWwFAhGEBgpwUb4uYXJ-szy3/view?usp=sharing"
         },
@@ -144,7 +141,6 @@ const appData = {
           "category": "adobe",
           "version": "25.2.1",
           "size": "1.37 GB",
-          "isNew": true,
           "image": "static/images/software/adobepremiere.png",
           "downloadUrl": "https://drive.google.com/file/d/11n_ZWCRqptseYWppPX4gK4fSaZ3tFg2k/view?usp=sharing"
         },
@@ -154,7 +150,6 @@ const appData = {
           "category": "adobe",
           "version": "24.6.2.002",
           "size": "3.51 GB",
-          "isNew": true,
           "image": "static/images/software/adobeaftereffects.png",
           "downloadUrl": "https://drive.google.com/file/d/144KhesG58sd7yjUpYtrNrTNfoEQIMzH9/view?usp=sharing"
         },
@@ -164,7 +159,6 @@ const appData = {
           "category": "adobe",
           "version": "2025.001.20435",
           "size": "1.05 GB",
-          "isNew": true,
           "image": "static/images/software/adobeacrobat.png",
           "downloadUrl": "https://drive.google.com/file/d/1Wv05t0CaZxC2NKAcUkX8Av53mlzJTM3r/view?usp=sharing"
         }
