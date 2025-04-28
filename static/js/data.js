@@ -47,6 +47,15 @@ const appData = {
           "isNew": true,
           "image": "static/images/games/bloxstrap.png",
           "downloadUrl": "https://github.com/bloxstraplabs/bloxstrap/releases/tag/v2.9.0"
+        },
+        {
+          "name": "Elden Ring",
+          "description": "Action RPG",
+          "category": "",
+          "version": "1.16.0",
+          "size": "60 GB",
+          "image": "static/images/games/eldenring.webp",
+          "downloadUrl": "https://drive.google.com/file/d/1sznR2khZiRCV3UoKMLy07DIxx9_zI3b6/view?usp=sharing"
         }
       ]
     },
