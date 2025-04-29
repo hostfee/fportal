@@ -162,7 +162,7 @@ function setupDownloadButtons(container) {
     buttons.forEach(button => {
         button.addEventListener('click', function() {
             const downloadUrl = this.getAttribute('data-download-url');
-            if (!downloadUrl) {
+            if (downloadUrl == "") {
                 alert("Link not found or will be added soon!");
                 return;
             }

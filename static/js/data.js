@@ -56,6 +56,16 @@ const appData = {
           "isNew": true,
           "image": "static/images/games/eldenring.webp",
           "downloadUrl": "https://drive.google.com/file/d/1sznR2khZiRCV3UoKMLy07DIxx9_zI3b6/view?usp=sharing"
+        },
+        {
+          "name": "Ghost of Tsushima",
+          "description": "Action RPG, Adventure",
+          "category": "",
+          "version": "1053.7.0809.1937",
+          "size": "55 GB",
+          "isNew": true,
+          "image": "static/images/games/ghostoftsushima.webp",
+          "downloadUrl": "https://drive.google.com/file/d/1lPo09QxoCm9SEQAwpuGOddPY9tkB9wMI/view?usp=sharing"
         }
       ]
     },
