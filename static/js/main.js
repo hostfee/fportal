@@ -55,17 +55,14 @@ function setupEmptyStateHandling(sectionId) {
         }
     }
 
-    const categoryTabs = section.querySelectorAll('.category-tab');
-    categoryTabs.forEach(tab => {
-        const originalClickHandler = tab.onclick;
-        tab.onclick = function(e) {
-            if (originalClickHandler) {
-                originalClickHandler.call(this, e);
-            }
-            setTimeout(checkEmptyState, 50);
-        };
+    // Listen for a custom event to trigger empty state check after filtering
+    document.addEventListener('filterComplete', function(event) {
+        if (event.detail.sectionId === sectionId) {
+            checkEmptyState();
+        }
     });
-    setTimeout(checkEmptyState, 100);
+
+    // Initial check after page load - this will now be triggered by the filterComplete event in setupCategoryFiltering
 }
 
 function updateScrollIndicator(sectionId) {
@@ -105,8 +102,11 @@ function generateAppCards(sectionId, container, apps) {
     container.innerHTML = '';
     apps.forEach(app => {
         const card = document.createElement('div');
+         // Set data-category attribute to the string representation of categories for potential other uses,
+         // but filtering logic will now directly use the appData structure.
         card.className = 'app-card app-card-visible';
-        card.setAttribute('data-category', app.category);
+        card.setAttribute('data-category', Array.isArray(app.category) ? app.category.join(',') : app.category);
+
         card.innerHTML = `
         ${app.isNew ? `<div class="new-badge">New </div>` : ''}
         <div class="app-image">
@@ -131,30 +131,77 @@ function generateAppCards(sectionId, container, apps) {
 function setupCategoryFiltering(sectionId) {
     const section = document.getElementById(sectionId);
     const categoryTabs = section.querySelectorAll('.category-tab');
+    // Get the apps data directly from appData based on sectionId
+    const apps = appData[sectionId]?.apps || [];
     const appCards = section.querySelectorAll('.app-card');
+
     categoryTabs.forEach(tab => {
         tab.addEventListener('click', function() {
             categoryTabs.forEach(t => t.classList.remove('active'));
             this.classList.add('active');
             const category = this.getAttribute('data-filter');
-            let visibleCount = 0;
+
             appCards.forEach(card => {
-                if (category === 'all' || card.getAttribute('data-category') === category) {
-                    card.style.display = 'flex';
-                    card.classList.add('app-card-visible');
-                    visibleCount++;
+                // Find the corresponding app data for this card
+                const appName = card.querySelector('.app-name').textContent;
+                const app = apps.find(a => a.name === appName);
+
+                if (app) {
+                    // Check if the category is 'all' or if the app's category list includes the selected category
+                    // Also handles cases where category is still a string (for non-game sections)
+                    if (category === 'all' || (Array.isArray(app.category) && app.category.includes(category)) || (!Array.isArray(app.category) && app.category === category)) {
+                        card.style.display = 'flex';
+                        card.classList.add('app-card-visible');
+                    } else {
+                        card.style.display = 'none';
+                        card.classList.remove('app-card-visible');
+                    }
                 } else {
+                     // If app data not found, hide the card
                     card.style.display = 'none';
                     card.classList.remove('app-card-visible');
                 }
             });
+
             const container = document.getElementById(`${sectionId}-grid`);
             container.scrollLeft = 0;
             setTimeout(() => {
                 updateScrollIndicator(sectionId);
+                // Also trigger the empty state check after filtering
+                const checkEmptyStateEvent = new CustomEvent('filterComplete', { detail: { sectionId: sectionId } });
+                document.dispatchEvent(checkEmptyStateEvent);
             }, 100);
         });
     });
+
+     // Initial filtering and empty state check when the section is initialized
+     const initialCategoryTab = section.querySelector('.category-tab.active');
+     if (initialCategoryTab) {
+         const initialCategory = initialCategoryTab.getAttribute('data-filter');
+          // Manually trigger the filtering logic for the initial active tab
+         const grid = document.getElementById(`${sectionId}-grid`);
+         const apps = appData[sectionId]?.apps || [];
+         const appCards = section.querySelectorAll('.app-card');
+         appCards.forEach(card => {
+             const appName = card.querySelector('.app-name').textContent;
+             const app = apps.find(a => a.name === appName);
+             if (app) {
+                 if (initialCategory === 'all' || (Array.isArray(app.category) && app.category.includes(initialCategory)) || (!Array.isArray(app.category) && app.category === initialCategory)) {
+                     card.style.display = 'flex';
+                     card.classList.add('app-card-visible');
+                 } else {
+                     card.style.display = 'none';
+                     card.classList.remove('app-card-visible');
+                 }
+             } else {
+                 card.style.display = 'none';
+                 card.classList.remove('app-card-visible');
+             }
+         });
+         // Trigger the empty state check after the initial filtering
+         const checkEmptyStateEvent = new CustomEvent('filterComplete', { detail: { sectionId: sectionId } });
+         document.dispatchEvent(checkEmptyStateEvent);
+     }
 }
 
 function setupDownloadButtons(container) {
@@ -266,7 +313,7 @@ function setupSearch() {
                             sectionElement.scrollIntoView({ behavior: 'smooth' });
                             setTimeout(() => {
                                 const allCategoryTab = document.querySelector(`#${section}-tabs .category-tab[data-filter="all"]`) ||
-                                         document.querySelector(`#${section}-tabs .category-tab:first-child`);
+                                             document.querySelector(`#${section}-tabs .category-tab:first-child`);
                                 if (allCategoryTab) {
                                     allCategoryTab.click();
                                 }
@@ -281,30 +328,30 @@ function setupSearch() {
                                         }
                                     });
                                 if (targetCard) {
-                                        const scrollLeft = targetCard.offsetLeft - (grid.clientWidth / 2) + (targetCard.clientWidth / 2);
-                                        grid.scrollTo({
-                                            left: scrollLeft,
-                                            behavior: 'smooth'
-                                        });
-                                        setTimeout(() => {
-                                            document.querySelectorAll('.search-highlight').forEach(el => {
-                                                el.classList.remove('search-highlight');
-                                                 el.style.transition = '';
-                                                 el.style.outline = '';
-                                                 el.style.outlineOffset = '';
+                                            const scrollLeft = targetCard.offsetLeft - (grid.clientWidth / 2) + (targetCard.clientWidth / 2);
+                                            grid.scrollTo({
+                                                left: scrollLeft,
+                                                behavior: 'smooth'
                                             });
-                                             targetCard.style.transition = 'outline 0.5s ease-in-out';
-                                             targetCard.style.outline = '2px solid #4285f4';
-                                             targetCard.style.outlineOffset = '2px';
-
-                                            targetCard.classList.add('search-highlight');
                                             setTimeout(() => {
-                                                targetCard.classList.remove('search-highlight');
-                                                 targetCard.style.transition = '';
-                                                 targetCard.style.outline = '';
-                                                 targetCard.style.outlineOffset = '';
-                                            }, 2000);
-                                        }, 500);
+                                                document.querySelectorAll('.search-highlight').forEach(el => {
+                                                     el.classList.remove('search-highlight');
+                                                     el.style.transition = '';
+                                                     el.style.outline = '';
+                                                     el.style.outlineOffset = '';
+                                                });
+                                                targetCard.style.transition = 'outline 0.5s ease-in-out';
+                                                targetCard.style.outline = '2px solid #4285f4';
+                                                targetCard.style.outlineOffset = '2px';
+
+                                                targetCard.classList.add('search-highlight');
+                                                setTimeout(() => {
+                                                    targetCard.classList.remove('search-highlight');
+                                                     targetCard.style.transition = '';
+                                                     targetCard.style.outline = '';
+                                                     targetCard.style.outlineOffset = '';
+                                                }, 2000);
+                                            }, 500);
                                 }
                                 }, 300);
                             }, 500);
@@ -347,7 +394,7 @@ function setupSmoothScrolling() {
                 document.querySelectorAll('main section').forEach(section => {
                      section.classList.remove('highlight-section');
                 });
-                 targetElement.classList.add('highlight-section');
+                targetElement.classList.add('highlight-section');
                 setTimeout(() => {
                     targetElement.classList.remove('highlight-section');
                 }, 1000);
@@ -356,9 +403,14 @@ function setupSmoothScrolling() {
     });
 }
 
+// This seems to be a redefinition, keeping the original logic in setupSmoothScrolling
+// Element.prototype.contains is also redefined later. Keeping the original
+// definitions for now to avoid potential conflicts.
+/*
 Element.prototype.contains = function(text) {
     return this.textContent.includes(text);
 };
+*/
 
 window.addEventListener('DOMContentLoaded', function() {
     const originalInit = initializeSection;
@@ -379,6 +431,7 @@ window.addEventListener('DOMContentLoaded', function() {
     };
 });
 
+// Keeping the original app-card hover effect logic
 document.querySelectorAll('.app-card').forEach(card => {
     card.addEventListener('mousemove', e => {
         const rect = card.getBoundingClientRect();
@@ -440,6 +493,7 @@ function setupSectionHighlighting() {
     });
 }
 
+/*
 const originalSetupSmoothScrolling = setupSmoothScrolling;
 setupSmoothScrolling = function() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -467,6 +521,7 @@ setupSmoothScrolling = function() {
         });
     });
 }
+*/
 
 function setupThemeToggle() {
     const themeToggleBtns = document.querySelectorAll('.theme-toggle');
@@ -484,7 +539,7 @@ function setupThemeToggle() {
                 }
                  btn.setAttribute('aria-label', 'Switch to light theme');
             } else {
-                  if (btn.classList.contains('btn-secondary')) {
+                 if (btn.classList.contains('btn-secondary')) {
                     btn.innerHTML = sunIcon + ' Theme';
                 } else {
                      btn.innerHTML = sunIcon;
@@ -518,3 +573,7 @@ function setupThemeToggle() {
         });
     });
 }
+
+Element.prototype.contains = function(text) {
+    return this.textContent.includes(text);
+};
