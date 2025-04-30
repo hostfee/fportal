@@ -8,6 +8,7 @@ window.addEventListener('DOMContentLoaded', function() {
     setupSmoothScrolling();
     setupThemeToggle();
     setupSectionHighlighting();
+    setupRecommendedSpecsModal();
 });
 
 function initializeSection(sectionId) {
@@ -55,14 +56,11 @@ function setupEmptyStateHandling(sectionId) {
         }
     }
 
-    // Listen for a custom event to trigger empty state check after filtering
     document.addEventListener('filterComplete', function(event) {
         if (event.detail.sectionId === sectionId) {
             checkEmptyState();
         }
     });
-
-    // Initial check after page load - this will now be triggered by the filterComplete event in setupCategoryFiltering
 }
 
 function updateScrollIndicator(sectionId) {
@@ -102,13 +100,29 @@ function generateAppCards(sectionId, container, apps) {
     container.innerHTML = '';
     apps.forEach(app => {
         const card = document.createElement('div');
-         // Set data-category attribute to the string representation of categories for potential other uses,
-         // but filtering logic will now directly use the appData structure.
         card.className = 'app-card app-card-visible';
         card.setAttribute('data-category', Array.isArray(app.category) ? app.category.join(',') : app.category);
 
+        let recommendedSpecsButtonHTML = '';
+        if (sectionId === 'games' && app.recommendedSpecs) {
+            recommendedSpecsButtonHTML = `
+                <button class="recommended-specs-btn" data-app-name="${app.name}" aria-label="Show recommended specifications">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14H12L11 22L21 10H12L13 2Z"></path></svg>
+                </button>
+            `;
+        }
+
+        const newBadgeHTML = app.isNew ? `<div class="new-badge">New </div>` : '';
+
         card.innerHTML = `
-        ${app.isNew ? `<div class="new-badge">New </div>` : ''}
+        <div class="card-top-row">
+            <div class="card-top-left">
+                ${recommendedSpecsButtonHTML}
+            </div>
+            <div class="card-top-right">
+                ${newBadgeHTML}
+            </div>
+        </div>
         <div class="app-image">
             <img src="${app.image}" alt="${app.name}" loading="lazy">
         </div>
@@ -120,7 +134,9 @@ function generateAppCards(sectionId, container, apps) {
                 <span>Version: ${app.version}</span>
                 <span>${app.size}</span>
             </div>
-            <a href="${app.downloadUrl}" class="download-btn" data-app-name="${app.name}" target="_blank" rel="noopener noreferrer">Download <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></a>
+            <div class="card-actions">
+                <a href="${app.downloadUrl}" class="download-btn" data-app-name="${app.name}" target="_blank" rel="noopener noreferrer">Download <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></a>
+            </div>
         </div>
     `;
         container.appendChild(card);
@@ -131,7 +147,6 @@ function generateAppCards(sectionId, container, apps) {
 function setupCategoryFiltering(sectionId) {
     const section = document.getElementById(sectionId);
     const categoryTabs = section.querySelectorAll('.category-tab');
-    // Get the apps data directly from appData based on sectionId
     const apps = appData[sectionId]?.apps || [];
     const appCards = section.querySelectorAll('.app-card');
 
@@ -142,13 +157,10 @@ function setupCategoryFiltering(sectionId) {
             const category = this.getAttribute('data-filter');
 
             appCards.forEach(card => {
-                // Find the corresponding app data for this card
                 const appName = card.querySelector('.app-name').textContent;
                 const app = apps.find(a => a.name === appName);
 
                 if (app) {
-                    // Check if the category is 'all' or if the app's category list includes the selected category
-                    // Also handles cases where category is still a string (for non-game sections)
                     if (category === 'all' || (Array.isArray(app.category) && app.category.includes(category)) || (!Array.isArray(app.category) && app.category === category)) {
                         card.style.display = 'flex';
                         card.classList.add('app-card-visible');
@@ -157,7 +169,6 @@ function setupCategoryFiltering(sectionId) {
                         card.classList.remove('app-card-visible');
                     }
                 } else {
-                     // If app data not found, hide the card
                     card.style.display = 'none';
                     card.classList.remove('app-card-visible');
                 }
@@ -167,18 +178,15 @@ function setupCategoryFiltering(sectionId) {
             container.scrollLeft = 0;
             setTimeout(() => {
                 updateScrollIndicator(sectionId);
-                // Also trigger the empty state check after filtering
                 const checkEmptyStateEvent = new CustomEvent('filterComplete', { detail: { sectionId: sectionId } });
                 document.dispatchEvent(checkEmptyStateEvent);
             }, 100);
         });
     });
 
-     // Initial filtering and empty state check when the section is initialized
      const initialCategoryTab = section.querySelector('.category-tab.active');
      if (initialCategoryTab) {
          const initialCategory = initialCategoryTab.getAttribute('data-filter');
-          // Manually trigger the filtering logic for the initial active tab
          const grid = document.getElementById(`${sectionId}-grid`);
          const apps = appData[sectionId]?.apps || [];
          const appCards = section.querySelectorAll('.app-card');
@@ -198,7 +206,6 @@ function setupCategoryFiltering(sectionId) {
                  card.classList.remove('app-card-visible');
              }
          });
-         // Trigger the empty state check after the initial filtering
          const checkEmptyStateEvent = new CustomEvent('filterComplete', { detail: { sectionId: sectionId } });
          document.dispatchEvent(checkEmptyStateEvent);
      }
@@ -216,6 +223,72 @@ function setupDownloadButtons(container) {
         });
     });
 }
+
+function setupRecommendedSpecsModal() {
+    const modal = document.getElementById('recommendedSpecsModal');
+    const modalContent = document.getElementById('recommendedSpecsContent');
+    const closeButton = document.querySelector('.close-button');
+
+    if (!modal || !modalContent || !closeButton) {
+        console.warn("Modal elements not found.");
+        return;
+    }
+
+    modal.style.display = 'none';
+    modal.classList.add('modal-hidden');
+
+    document.addEventListener('click', function(event) {
+        const target = event.target;
+        const recommendedSpecsBtn = target.closest('.recommended-specs-btn');
+
+        if (recommendedSpecsBtn) {
+            const appName = recommendedSpecsBtn.getAttribute('data-app-name');
+            const game = appData.games.apps.find(game => game.name === appName);
+
+            if (game && game.recommendedSpecs) {
+                modalContent.innerHTML = `
+                    <h2>Recommended Specifications: ${game.name}</h2>
+                    <p><strong>CPU:</strong> ${game.recommendedSpecs.cpu}</p>
+                    <p><strong>GPU:</strong> ${game.recommendedSpecs.gpu}</p>
+                    <p><strong>RAM:</strong> ${game.recommendedSpecs.ram}</p>
+                `;
+                modal.classList.remove('modal-hidden');
+                modal.classList.add('modal-visible');
+                modal.style.display = 'flex';
+            } else {
+                modalContent.innerHTML = `<h2>Specifications not available for ${appName}</h2>`;
+                modal.classList.remove('modal-hidden');
+                modal.classList.add('modal-visible');
+                modal.style.display = 'flex';
+            }
+        }
+    });
+
+    closeButton.addEventListener('click', function() {
+        modal.classList.remove('modal-visible');
+        modal.classList.add('modal-hidden');
+        modal.addEventListener('transitionend', function handler() {
+            if (modal.classList.contains('modal-hidden')) {
+                modal.style.display = 'none';
+                modal.removeEventListener('transitionend', handler);
+            }
+        });
+    });
+
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.classList.remove('modal-visible');
+            modal.classList.add('modal-hidden');
+            modal.addEventListener('transitionend', function handler() {
+                if (modal.classList.contains('modal-hidden')) {
+                    modal.style.display = 'none';
+                    modal.removeEventListener('transitionend', handler);
+                }
+            });
+        }
+    });
+}
+
 
 function setupMobileMenu() {
     const menuToggle = document.querySelector('.mobile-menu-toggle');
@@ -403,14 +476,9 @@ function setupSmoothScrolling() {
     });
 }
 
-// This seems to be a redefinition, keeping the original logic in setupSmoothScrolling
-// Element.prototype.contains is also redefined later. Keeping the original
-// definitions for now to avoid potential conflicts.
-/*
 Element.prototype.contains = function(text) {
     return this.textContent.includes(text);
 };
-*/
 
 window.addEventListener('DOMContentLoaded', function() {
     const originalInit = initializeSection;
@@ -431,7 +499,6 @@ window.addEventListener('DOMContentLoaded', function() {
     };
 });
 
-// Keeping the original app-card hover effect logic
 document.querySelectorAll('.app-card').forEach(card => {
     card.addEventListener('mousemove', e => {
         const rect = card.getBoundingClientRect();
@@ -493,36 +560,6 @@ function setupSectionHighlighting() {
     });
 }
 
-/*
-const originalSetupSmoothScrolling = setupSmoothScrolling;
-setupSmoothScrolling = function() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                document.querySelectorAll('header .desktop-nav a, .mobile-menu .mobile-nav a').forEach(link => {
-                    link.classList.remove('active');
-                });
-                this.classList.add('active');
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-                document.querySelectorAll('main section').forEach(section => {
-                     section.classList.remove('highlight-section');
-                });
-                 targetElement.classList.add('highlight-section');
-                setTimeout(() => {
-                    targetElement.classList.remove('highlight-section');
-                }, 1000);
-            }
-        });
-    });
-}
-*/
-
 function setupThemeToggle() {
     const themeToggleBtns = document.querySelectorAll('.theme-toggle');
     const htmlElement = document.documentElement;
@@ -573,7 +610,3 @@ function setupThemeToggle() {
         });
     });
 }
-
-Element.prototype.contains = function(text) {
-    return this.textContent.includes(text);
-};

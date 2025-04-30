@@ -13,6 +13,17 @@
     --glass-bg: rgba(255, 255, 255, 0.7);
     --glass-border: rgba(255, 255, 255, 0.3);
     --transition: all 0.3s ease;
+
+    /* Modal light theme variables */
+    --modal-bg-color: #fefefe;
+    --modal-text-color: #333;
+    --modal-secondary-text-color: #555;
+    --modal-border-color: #888;
+    --close-button-color: #aaa;
+    --close-button-hover-color: #000;
+    --recommended-specs-btn-bg: rgba(0, 123, 255, 0.7);
+    --recommended-specs-btn-hover-bg: #0056b3;
+    --recommended-specs-btn-color: white;
 }
 
 [data-theme="dark"] {
@@ -29,6 +40,17 @@
     --gradient: linear-gradient(135deg, var(--primary), #6366f1);
     --glass-bg: rgba(31, 41, 55, 0.7);
     --glass-border: rgba(31, 41, 55, 0.3);
+
+    /* Modal dark theme variables */
+    --modal-bg-color: #333;
+    --modal-text-color: #fefefe;
+    --modal-secondary-text-color: #ccc;
+    --modal-border-color: #555;
+    --close-button-color: #ccc;
+    --close-button-hover-color: #fefefe;
+    --recommended-specs-btn-bg: rgba(0, 123, 255, 0.5);
+    --recommended-specs-btn-hover-bg: #0056b3;
+    --recommended-specs-btn-color: white;
 }
 
 * {
@@ -583,41 +605,58 @@ section.visible {
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-.new-badge {
+.card-top-row {
     position: absolute;
-    top: 0;
-    right: 0;
-    background: #ff0077;
-    color: white;
-    padding: 0.4rem 0.8rem;
-    border-bottom-left-radius: 1rem;
-    font-size: 0.75rem;
-    font-weight: 700;
-    z-index: 10;
-    clip-path: none;
+    top: 10px;
+    left: 10px;
+    right: 10px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 0.25rem;
-    box-shadow: 0 2px 5px rgba(255, 0, 119, 0.5);
-    animation: pulse 1.5s infinite;
-}
-.new-badge svg {
-    width: 0.9rem;
-    height: 0.9rem;
-    color: white;
+    z-index: 2;
 }
 
+.card-top-left {
+    /* No specific styles needed here for positioning with space-between */
+}
+
+.card-top-right {
+    /* No specific styles needed here for positioning with space-between */
+}
+
+.new-badge {
+    background-color: #ff0077; /* Keeping the original highlight color */
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+.recommended-specs-btn {
+    background-color: var(--recommended-specs-btn-bg);
+    color: var(--recommended-specs-btn-color);
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background-color 0.3s ease;
+    font-size: 0.9em;
+}
+
+.recommended-specs-btn:hover {
+    background-color: var(--recommended-specs-btn-hover-bg);
+}
+
+.recommended-specs-btn svg {
+    width: 14px;
+    height: 14px;
+    stroke: currentColor;
+}
 
 .app-image {
     height: 175px;
@@ -673,26 +712,32 @@ section.visible {
     gap: 0.25rem;
 }
 
-.download-btn {
-    background: var(--primary);
-    color: white;
-    border: none;
-    border-radius: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition);
+.card-actions {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    width: 100%;
-    margin-top: 1rem;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background-color: var(--primary); /* Using primary theme color for download button */
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
     text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
 .download-btn:hover {
-    background: var(--primary-dark);
+    background-color: var(--primary-dark);
+}
+
+.download-btn svg {
+    stroke: currentColor;
 }
 
 .scroll-indicator {
@@ -853,6 +898,121 @@ footer {
     gap: 2rem;
     justify-content: center;
 }
+
+/* Modal styles (merged and updated) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); /* Consistent backdrop */
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal.modal-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: var(--modal-bg-color);
+    margin: auto;
+    padding: 20px;
+    border: 1px solid var(--modal-border-color);
+    width: 80%;
+    max-width: 500px;
+    border-radius: 8px;
+    position: relative;
+    transform: translateY(20px); /* Initial state for animation */
+    transition: transform 0.3s ease;
+    color: var(--modal-text-color);
+}
+
+.modal.modal-visible .modal-content {
+    transform: translateY(0); /* Final state for animation */
+}
+
+.close-button {
+    color: var(--close-button-color);
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    background: none; /* Ensure no default button background */
+    border: none; /* Ensure no default button border */
+    padding: 0; /* Remove default padding */
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--close-button-hover-color);
+    text-decoration: none;
+    outline: none; /* Remove default outline */
+}
+
+/* Styles within the modal content */
+#recommendedSpecsContent h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    color: var(--modal-text-color);
+}
+
+#recommendedSpecsContent p {
+    margin-bottom: 8px;
+    color: var(--modal-secondary-text-color);
+}
+
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 15px;
+    gap: 15px;
+    background-color: #181717;
+    outline: 3px #181717 solid;
+    outline-offset: -3px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: 400ms;
+  }
+
+  .button .text {
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1em;
+    transition: 400ms;
+  }
+
+  .button svg path {
+    transition: 400ms;
+  }
+
+  .button:hover {
+    background-color: transparent;
+  }
+
+  .button:hover .text {
+    color: #181717;
+  }
+
+  .button:hover svg path {
+    fill: #181717;
+  }
 
 @keyframes fade-in-up {
     from {

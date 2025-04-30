@@ -23,7 +23,12 @@ const appData = {
         "version": "1.21",
         "size": "1.2 GB",
         "image": "static/images/games/minecraftbedrock.webp",
-        "downloadUrl": ""
+        "downloadUrl": "",
+        "recommendedSpecs": {
+          "cpu": "Intel Core i5-4570 / AMD FX-8350",
+          "gpu": "Nvidia GeForce GTX 760 / AMD Radeon R7 260X",
+          "ram": "8 GB"
+        }
       },
       {
         "name": "Prism",
@@ -34,7 +39,12 @@ const appData = {
         "version": "9.4",
         "size": "22 MB",
         "image": "static/images/games/prism.webp",
-        "downloadUrl": "https://drive.google.com/uc?export=download&id=19smzCQtCblxNS0hmjyaBXbozkuP8hTKj"
+        "downloadUrl": "https://drive.google.com/uc?export=download&id=19smzCQtCblxNS0hmjyaBXbozkuP8hTKj",
+         "recommendedSpecs": {
+          "cpu": "Any modern CPU",
+          "gpu": "Any modern GPU",
+          "ram": "4 GB"
+        }
       },
       {
         "name": "Delta",
@@ -45,7 +55,12 @@ const appData = {
         "version": "Updated",
         "size": "~250 MB",
         "image": "static/images/games/delta.png",
-        "downloadUrl": "https://deltaexploits.gg/delta-executor-mobile"
+        "downloadUrl": "https://deltaexploits.gg/delta-executor-mobile",
+         "recommendedSpecs": {
+          "cpu": "Any modern CPU",
+          "gpu": "Any modern GPU",
+          "ram": "4 GB"
+        }
       },
       {
         "name": "Krnl",
@@ -56,7 +71,12 @@ const appData = {
         "version": "Updated",
         "size": "~265 MB",
         "image": "static/images/games/krnl.png",
-        "downloadUrl": "https://krnl.cat/"
+        "downloadUrl": "https://krnl.cat/",
+         "recommendedSpecs": {
+          "cpu": "Any modern CPU",
+          "gpu": "Any modern GPU",
+          "ram": "4 GB"
+        }
       },
       {
         "name": "Bloxstrap",
@@ -67,7 +87,12 @@ const appData = {
         "version": "2.9.0",
         "size": "471 MB",
         "image": "static/images/games/bloxstrap.png",
-        "downloadUrl": "https://github.com/bloxstraplabs/bloxstrap/releases/tag/v2.9.0"
+        "downloadUrl": "https://github.com/bloxstraplabs/bloxstrap/releases/tag/v2.9.0",
+         "recommendedSpecs": {
+          "cpu": "Any modern CPU",
+          "gpu": "Any modern GPU",
+          "ram": "4 GB"
+        }
       },
       {
         "name": "Elden Ring",
@@ -81,7 +106,12 @@ const appData = {
         "size": "60 GB",
         "isNew": true,
         "image": "static/images/games/eldenring.webp",
-        "downloadUrl": "https://drive.google.com/file/d/1sznR2khZiRCV3UoKMLy07DIxx9_zI3b6/view?usp=sharing"
+        "downloadUrl": "https://drive.google.com/file/d/1sznR2khZiRCV3UoKMLy07DIxx9_zI3b6/view?usp=sharing",
+        "recommendedSpecs": {
+          "cpu": "Intel Core i7-8700K / AMD Ryzen 5 3600X",
+          "gpu": "Nvidia GeForce GTX 1070 / AMD Radeon RX VEGA 56",
+          "ram": "16 GB"
+        }
       },
       {
         "name": "Ghost of Tsushima",
@@ -96,7 +126,12 @@ const appData = {
         "size": "55 GB",
         "isNew": true,
         "image": "static/images/games/ghostoftsushima.webp",
-        "downloadUrl": "https://drive.google.com/file/d/1lPo09QxoCm9SEQAwpuGOddPY9tkB9wMI/view?usp=sharing"
+        "downloadUrl": "https://drive.google.com/file/d/1lPo09QxoCm9SEQAwpuGOddPY9tkB9wMI/view?usp=sharing",
+         "recommendedSpecs": {
+          "cpu": "Intel Core i5-8600 / AMD Ryzen 5 3600",
+          "gpu": "Nvidia GeForce GTX 1060 6GB / AMD Radeon RX 5500 XT",
+          "ram": "16 GB"
+        }
       },
       {
         "name": "Red Dead Redemption 2",
@@ -110,7 +145,12 @@ const appData = {
         "size": "150 GB",
         "isNew": true,
         "image": "static/images/games/reddeadredemption2.jpg",
-        "downloadUrl": "https://drive.google.com/file/d/1wMS5ncN-14yzPWuzHjeANvq1u3Zr9yMk/view?usp=sharing"
+        "downloadUrl": "https://drive.google.com/file/d/1wMS5ncN-14yzPWuzHjeANvq1u3Zr9yMk/view?usp=sharing",
+        "recommendedSpecs": {
+          "cpu": "Intel Core i7-4770K / AMD Ryzen 5 1500X",
+          "gpu": "Nvidia GeForce GTX 1060 6GB / AMD Radeon RX 480 4GB",
+          "ram": "12 GB"
+        }
       },
       {
         "name": "BeamNG Drive",
@@ -124,7 +164,12 @@ const appData = {
         "size": "45 GB",
         "isNew": true,
         "image": "static/images/games/beamngdrive.jpg",
-        "downloadUrl": "https://drive.google.com/file/d/1vjjPQXBrAh1tM1J3gK6HhNwiMfaMiOZd/view?usp=sharing"
+        "downloadUrl": "https://drive.google.com/file/d/1vjjPQXBrAh1tM1J3gK6HhNwiMfaMiOZd/view?usp=sharing",
+         "recommendedSpecs": {
+          "cpu": "Intel Core i7-6700 / AMD Ryzen 7 1700",
+          "gpu": "Nvidia GeForce GTX 1070 / AMD Radeon RX Vega 56",
+          "ram": "16 GB"
+        }
       },
       {
         "name": "Dark Souls III",
@@ -138,7 +183,12 @@ const appData = {
         "size": "25 GB",
         "isNew": true,
         "image": "static/images/games/darksouls3.jpg",
-        "downloadUrl": "https://drive.google.com/file/d/1VxaAu7Dggo3d70tmHrcHLPTE7ZPLAMDA/view?usp=sharing"
+        "downloadUrl": "https://drive.google.com/file/d/1VxaAu7Dggo3d70tmHrcHLPTE7ZPLAMDA/view?usp=sharing",
+         "recommendedSpecs": {
+          "cpu": "Intel Core i7-3770 / AMD FX-8350",
+          "gpu": "Nvidia GeForce GTX 970 / AMD Radeon R9 290",
+          "ram": "8 GB"
+        }
       }
     ]
   },
@@ -157,7 +207,7 @@ const appData = {
         "version": "5.1.0",
         "size": "206 MB",
         "image": "static/images/software/qbittorrent.webp",
-        "downloadUrl": "https://www.qbittorrent.org/download",
+        "downloadUrl": "https://www.qbittorrent.org/download"
       },
       {
         "name": "Wallpaper Engine",
@@ -349,4 +399,4 @@ const appData = {
       }
     ]
   }
-};
+}
