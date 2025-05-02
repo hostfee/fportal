@@ -568,6 +568,15 @@ const appData = {
     ],
     "apps": [
       {
+        "name": "OneClickFirewall",
+        "description": "Disable Internet access for any app(For example: Photoshop, use it if program asks for license)",
+        "category": ["system", "security"],
+        "version": "1.0",
+        "size": "300 KB",
+        "image": "static/images/software/oneclickfirewall.png",
+        "downloadUrl": "https://winaero.com/download-oneclickfirewall/"
+      },
+      {
         "name": "CCleaner",
         "description": "System Cleaner",
         "category": "security",
