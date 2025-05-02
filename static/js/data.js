@@ -573,7 +573,7 @@ const appData = {
         "category": ["system", "security"],
         "version": "1.0",
         "size": "300 KB",
-        "image": "static/images/software/oneclickfirewall.png",
+        "image": "static/images/utilities/oneclickfirewall.png",
         "downloadUrl": "https://winaero.com/download-oneclickfirewall/"
       },
       {
