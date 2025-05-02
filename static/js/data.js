@@ -8,10 +8,10 @@ const appData = {
       "Adventure",
       "Open World",
       "RPG",
-      "Action RPG",
       "Action",
       "Simulation",
-      "Strategy"
+      "Strategy",
+      "Stealth",
     ],
     "apps": [
       {
@@ -98,13 +98,13 @@ const appData = {
         "name": "Elden Ring",
         "description": "Action RPG, Soulslike",
         "category": [
-          "Action RPG",
+          "Action",
           "RPG",
           "Open World"
         ],
         "version": "1.16.0",
         "size": "60 GB",
-        "isNew": true,
+        "isNew": false,
         "image": "static/images/games/eldenring.webp",
         "downloadUrl": "https://drive.google.com/file/d/1sznR2khZiRCV3UoKMLy07DIxx9_zI3b6/view?usp=sharing",
         "recommendedSpecs": {
@@ -117,14 +117,14 @@ const appData = {
         "name": "Ghost of Tsushima",
         "description": "Action RPG, Adventure",
         "category": [
-          "Action RPG",
+          "Action",
           "Adventure",
           "RPG",
           "Open World"
         ],
         "version": "1053.7.0809.1937",
         "size": "55 GB",
-        "isNew": true,
+        "isNew": false,
         "image": "static/images/games/ghostoftsushima.webp",
         "downloadUrl": "https://drive.google.com/file/d/1lPo09QxoCm9SEQAwpuGOddPY9tkB9wMI/view?usp=sharing",
          "recommendedSpecs": {
@@ -143,7 +143,7 @@ const appData = {
         ],
         "version": "1491.50",
         "size": "150 GB",
-        "isNew": true,
+        "isNew": false,
         "image": "static/images/games/reddeadredemption2.jpg",
         "downloadUrl": "https://drive.google.com/file/d/1wMS5ncN-14yzPWuzHjeANvq1u3Zr9yMk/view?usp=sharing",
         "recommendedSpecs": {
@@ -162,7 +162,7 @@ const appData = {
         ],
         "version": "0.33.3",
         "size": "45 GB",
-        "isNew": true,
+        "isNew": false,
         "image": "static/images/games/beamngdrive.jpg",
         "downloadUrl": "https://drive.google.com/file/d/1vjjPQXBrAh1tM1J3gK6HhNwiMfaMiOZd/view?usp=sharing",
          "recommendedSpecs": {
@@ -175,18 +175,267 @@ const appData = {
         "name": "Dark Souls III",
         "description": "Action RPG, Soulslike",
         "category": [
-          "Action RPG",
+          "Action",
           "RPG",
           "Adventure"
         ],
         "version": "1.15",
         "size": "25 GB",
-        "isNew": true,
+        "isNew": false,
         "image": "static/images/games/darksouls3.jpg",
         "downloadUrl": "https://drive.google.com/file/d/1VxaAu7Dggo3d70tmHrcHLPTE7ZPLAMDA/view?usp=sharing",
          "recommendedSpecs": {
           "cpu": "Intel Core i7-3770 / AMD FX-8350",
           "gpu": "Nvidia GeForce GTX 970 / AMD Radeon R9 290",
+          "ram": "8 GB"
+        }
+      },
+      {
+        "name": "Assassin's Creed",
+        "description": "Action, Stealth",
+        "category": [
+          "Action",
+          "RPG",
+          "Adventure",
+          "Stealth",
+          "Open World"
+        ],
+        "version": "1.02",
+        "size": "6 GB",
+        "isNew": true,
+        "image": "static/images/games/assassinscreed.webp",
+        "downloadUrl": "https://drive.google.com/file/d/1VrvIQi2rgd3ZshaC_h99CfX2ktOfEfJP/view?usp=sharing",
+         "recommendedSpecs": {
+          "cpu": " Pentium D 2.6 GHZ / Athlon 64 X2 3800 2GHZ",
+          "gpu": "GeForce 6800 / Radeon X1600",
+          "ram": "2 GB"
+        }
+      },
+      {
+        "name": "Assassin's Creed II",
+        "description": "Action, Stealth",
+        "category": [
+          "Action",
+          "RPG",
+          "Adventure",
+          "Stealth",
+          "Open World"
+        ],
+        "version": "1.01",
+        "size": "6 GB",
+        "isNew": true,
+        "image": "static/images/games/assassinscreed2.webp",
+        "downloadUrl": "https://drive.google.com/file/d/1WFIuMJ0qKuw2T1m1dyZp7wr-z-vFgV7x/view?usp=sharing",
+         "recommendedSpecs": {
+          "cpu": "Core 2 Duo / Athlon X2 64",
+          "gpu": "GeForce 7300 GT / Radeon X1950",
+          "ram": "1.5-2 GB"
+        }
+      },
+      {
+        "name": "Assassin's Creed: Brotherhood",
+        "description": "Action, Stealth",
+        "category": [
+          "Action",
+          "RPG",
+          "Adventure",
+          "Stealth",
+          "Open World"
+        ],
+        "version": "1.03",
+        "size": "7 GB",
+        "isNew": true,
+        "image": "static/images/games/assassinscreedbrotherhood.webp",
+        "downloadUrl": "https://drive.google.com/file/d/1FR0LJlTAJmTC_5d4sMT7eE2dfXEQKwGZ/view?usp=sharing",
+         "recommendedSpecs": {
+          "cpu": "Core 2 Duo / Athlon X2 64",
+          "gpu": "GeForce 7300 GT / Radeon X1950",
+          "ram": "1.5-2 GB"
+        }
+      },
+      {
+        "name": "Assassin's Creed: Revelations",
+        "description": "Action, Stealth",
+        "category": [
+          "Action",
+          "RPG",
+          "Adventure",
+          "Stealth",
+          "Open World"
+        ],
+        "version": "1.03",
+        "size": "12 GB",
+        "isNew": true,
+        "image": "static/images/games/assassinscreedrevelations.webp",
+        "downloadUrl": "https://drive.google.com/file/d/1Fj854d3MqDzAKwnslGloKuKPFAkireUm/view?usp=sharing",
+         "recommendedSpecs": {
+          "cpu": "Core 2 Duo / Athlon X2 64",
+          "gpu": "GeForce 7300 GT / Radeon X1950",
+          "ram": "1.5-2 GB"
+        }
+      },
+      {
+        "name": "Assassin's Creed III",
+        "description": "Action, Stealth",
+        "category": [
+          "Action",
+          "RPG",
+          "Adventure",
+          "Stealth",
+          "Open World"
+        ],
+        "version": "1.06",
+        "size": "15 GB",
+        "isNew": true,
+        "image": "static/images/games/assassinscreed3.jpg",
+        "downloadUrl": "https://drive.google.com/file/d/1tND_EiAlXRPfsWPFGi3eZtpKqJOEsNPd/view?usp=sharing",
+         "recommendedSpecs": {
+          "cpu": "Core 2 Duo E8200 / Athlon II X2 240",
+          "gpu": "GeForce 8800 GT / Radeon HD 4670",
+          "ram": "2 GB"
+        }
+      },
+      {
+        "name": "Assassin's Creed IV: Black Flag",
+        "description": "Action, Stealth",
+        "category": [
+          "Action",
+          "RPG",
+          "Adventure",
+          "Stealth",
+          "Open World"
+        ],
+        "version": "1.08",
+        "size": "18 GB",
+        "isNew": true,
+        "image": "static/images/games/assassinscreedblackflag.webp",
+        "downloadUrl": "https://drive.google.com/file/d/1IDrWaaHNJ21p_-CPgbAlXJN2pnTSAB5a/view?usp=sharing",
+         "recommendedSpecs": {
+          "cpu": "Core 2 Quad Q8400 / Athlon II X4 620",
+          "gpu": "Geforce GTX 260 / Radeon HD 4870",
+          "ram": "2 GB"
+        }
+      },
+      {
+        "name": "Assassin's Creed Unity",
+        "description": "Action, Stealth",
+        "category": [
+          "Action",
+          "RPG",
+          "Adventure",
+          "Stealth",
+          "Open World"
+        ],
+        "version": "1.5",
+        "size": "49.4 GB",
+        "isNew": true,
+        "image": "static/images/games/assassinscreedunity.jpg",
+        "downloadUrl": "https://drive.google.com/file/d/1HcG9j-vG56LZPCyHrWlnXI2obTinJKAV/view?usp=sharing",
+         "recommendedSpecs": {
+          "cpu": "Core i5-2500K / FX-8350",
+          "gpu": "GeForce GTX 680 / Radeon HD 7970",
+          "ram": "6 GB"
+        }
+      },
+      {
+        "name": "Assassin's Creed Syndicate",
+        "description": "Action, Stealth",
+        "category": [
+          "Action",
+          "RPG",
+          "Adventure",
+          "Stealth",
+          "Open World"
+        ],
+        "version": "1.51",
+        "size": "100 GB",
+        "isNew": true,
+        "image": "static/images/games/assassinscreedsyndicate.webp",
+        "downloadUrl": "https://drive.google.com/file/d/1XFr7rJ4kPQ1bFKQpM6cgtFFcK0zE3lyu/view?usp=sharing",
+         "recommendedSpecs": {
+          "cpu": "Core i7-3770",
+          "gpu": "GeForce GTX 760",
+          "ram": "8 GB"
+        }
+      },
+      {
+        "name": "Assassin's Creed Origins",
+        "description": "Action, RPG, Adventure",
+        "category": [
+          "Action",
+          "RPG",
+          "Adventure",
+          "Open World"
+        ],
+        "version": "1.51",
+        "size": "69.2 GB",
+        "isNew": true,
+        "image": "static/images/games/assassinscreedorigin.webp",
+        "downloadUrl": "https://drive.google.com/file/d/1hAsNfSy2S5MS-WBZS8I_AirADU-UAOjg/view?usp=sharing",
+         "recommendedSpecs": {
+          "cpu": "Intel Core i5-2400s / AMD FX-6350",
+          "gpu": "GeForce GTX 660 / AMD R9 270",
+          "ram": "6 GB"
+        }
+      },
+      {
+        "name": "Assassin's Creed Odyssey",
+        "description": "Action, RPG, Adventure",
+        "category": [
+          "Action",
+          "RPG",
+          "Adventure",
+          "Open World"
+        ],
+        "version": "1.5.3",
+        "size": "70 GB",
+        "isNew": true,
+        "image": "static/images/games/assassinscreedodyssey.webp",
+        "downloadUrl": "https://drive.google.com/file/d/1MkwfPYwN68PFRy-n_gxfZRP-3Hah4-8U/view?usp=sharing",
+         "recommendedSpecs": {
+          "cpu": "Intel Core i5-2400s / AMD FX-6350",
+          "gpu": "GeForce GTX 660 / AMD R9 270",
+          "ram": "8 GB"
+        }
+      },
+      {
+        "name": "Assassin's Creed Valhalla",
+        "description": "Action, RPG, Adventure",
+        "category": [
+          "Action",
+          "RPG",
+          "Adventure",
+          "Open World"
+        ],
+        "version": "1.7.0",
+        "size": "145 GB",
+        "isNew": true,
+        "image": "static/images/games/assassinscreedvalhalla.webp",
+        "downloadUrl": "https://drive.google.com/file/d/16_GyJ7uMubB-dxhw2RRmg7H9i5b7j6-w/view?usp=sharing",
+         "recommendedSpecs": {
+          "cpu": "AMD Ryzen R3 1200 / Intel Core i5-4460",
+          "gpu": "AMD Radeon R9 380 / nVidia GeForce GTX 960",
+          "ram": "8 GB"
+        }
+      },
+      {
+        "name": "Assassin's Creed Mirage",
+        "description": "Action, RPG, Adventure. To close debug window, press 'P' or 'H'",
+        "category": [
+          "Action",
+          "RPG",
+          "Adventure",
+          "Open World",
+          "Stealth"
+        ],
+        "version": "1.0.6[Debug]",
+        "size": "41 GB",
+        "isNew": true,
+        "image": "static/images/games/assassinscreedmirage.jpg",
+        "downloadUrl": "https://drive.google.com/file/d/12_gfslu_q-WZHrDxSWwGt3Wd_i29fooO/view?usp=sharing",
+         "recommendedSpecs": {
+          "cpu": "Intel Core i7-4790K / AMD Ryzen 5 1600",
+          "gpu": " NVIDIA GeForce GTX 1060 /AMD Radeon RX 570 / Intel Arc A380",
           "ram": "8 GB"
         }
       }
@@ -293,7 +542,7 @@ const appData = {
       },
       {
         "name": "Adobe After Effects",
-        "description": "Video Editor",
+        "description": "Video Effects Editor",
         "category": "adobe",
         "version": "24.6.2.002",
         "size": "3.51 GB",
