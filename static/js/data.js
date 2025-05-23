@@ -184,7 +184,6 @@ const appData = {
         ],
         "version": "1.15",
         "size": "25 GB",
-        "isNew": false,
         "image": "static/images/games/darksouls3.jpg",
         "downloadUrl": "https://drive.google.com/file/d/1VxaAu7Dggo3d70tmHrcHLPTE7ZPLAMDA/view?usp=sharing",
          "recommendedSpecs": {
@@ -205,7 +204,6 @@ const appData = {
         ],
         "version": "1.02",
         "size": "6 GB",
-        "isNew": true,
         "image": "static/images/games/assassinscreed.webp",
         "downloadUrl": "https://drive.google.com/file/d/1VrvIQi2rgd3ZshaC_h99CfX2ktOfEfJP/view?usp=sharing",
          "recommendedSpecs": {
@@ -226,7 +224,6 @@ const appData = {
         ],
         "version": "1.01",
         "size": "6 GB",
-        "isNew": true,
         "image": "static/images/games/assassinscreed2.webp",
         "downloadUrl": "https://drive.google.com/file/d/1WFIuMJ0qKuw2T1m1dyZp7wr-z-vFgV7x/view?usp=sharing",
          "recommendedSpecs": {
@@ -247,7 +244,6 @@ const appData = {
         ],
         "version": "1.03",
         "size": "7 GB",
-        "isNew": true,
         "image": "static/images/games/assassinscreedbrotherhood.webp",
         "downloadUrl": "https://drive.google.com/file/d/1FR0LJlTAJmTC_5d4sMT7eE2dfXEQKwGZ/view?usp=sharing",
          "recommendedSpecs": {
@@ -268,7 +264,6 @@ const appData = {
         ],
         "version": "1.03",
         "size": "12 GB",
-        "isNew": true,
         "image": "static/images/games/assassinscreedrevelations.webp",
         "downloadUrl": "https://drive.google.com/file/d/1Fj854d3MqDzAKwnslGloKuKPFAkireUm/view?usp=sharing",
          "recommendedSpecs": {
@@ -289,7 +284,6 @@ const appData = {
         ],
         "version": "1.06",
         "size": "15 GB",
-        "isNew": true,
         "image": "static/images/games/assassinscreed3.jpg",
         "downloadUrl": "https://drive.google.com/file/d/1tND_EiAlXRPfsWPFGi3eZtpKqJOEsNPd/view?usp=sharing",
          "recommendedSpecs": {
@@ -310,7 +304,6 @@ const appData = {
         ],
         "version": "1.08",
         "size": "18 GB",
-        "isNew": true,
         "image": "static/images/games/assassinscreedblackflag.webp",
         "downloadUrl": "https://drive.google.com/file/d/1IDrWaaHNJ21p_-CPgbAlXJN2pnTSAB5a/view?usp=sharing",
          "recommendedSpecs": {
@@ -331,7 +324,6 @@ const appData = {
         ],
         "version": "1.5",
         "size": "49.4 GB",
-        "isNew": true,
         "image": "static/images/games/assassinscreedunity.jpg",
         "downloadUrl": "https://drive.google.com/file/d/1HcG9j-vG56LZPCyHrWlnXI2obTinJKAV/view?usp=sharing",
          "recommendedSpecs": {
@@ -352,7 +344,6 @@ const appData = {
         ],
         "version": "1.51",
         "size": "100 GB",
-        "isNew": true,
         "image": "static/images/games/assassinscreedsyndicate.webp",
         "downloadUrl": "https://drive.google.com/file/d/1XFr7rJ4kPQ1bFKQpM6cgtFFcK0zE3lyu/view?usp=sharing",
          "recommendedSpecs": {
@@ -372,7 +363,6 @@ const appData = {
         ],
         "version": "1.51",
         "size": "69.2 GB",
-        "isNew": true,
         "image": "static/images/games/assassinscreedorigin.webp",
         "downloadUrl": "https://drive.google.com/file/d/1hAsNfSy2S5MS-WBZS8I_AirADU-UAOjg/view?usp=sharing",
          "recommendedSpecs": {
@@ -392,7 +382,6 @@ const appData = {
         ],
         "version": "1.5.3",
         "size": "70 GB",
-        "isNew": true,
         "image": "static/images/games/assassinscreedodyssey.webp",
         "downloadUrl": "https://drive.google.com/file/d/1MkwfPYwN68PFRy-n_gxfZRP-3Hah4-8U/view?usp=sharing",
          "recommendedSpecs": {
@@ -412,7 +401,6 @@ const appData = {
         ],
         "version": "1.7.0",
         "size": "145 GB",
-        "isNew": true,
         "image": "static/images/games/assassinscreedvalhalla.webp",
         "downloadUrl": "https://drive.google.com/file/d/16_GyJ7uMubB-dxhw2RRmg7H9i5b7j6-w/view?usp=sharing",
          "recommendedSpecs": {
@@ -433,7 +421,6 @@ const appData = {
         ],
         "version": "1.0.6[Debug]",
         "size": "41 GB",
-        "isNew": true,
         "image": "static/images/games/assassinscreedmirage.jpg",
         "downloadUrl": "https://drive.google.com/file/d/12_gfslu_q-WZHrDxSWwGt3Wd_i29fooO/view?usp=sharing",
          "recommendedSpecs": {
