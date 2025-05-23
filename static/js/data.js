@@ -12,6 +12,7 @@ const appData = {
       "Simulation",
       "Strategy",
       "Stealth",
+      "Multiplayer",
     ],
     "apps": [
       {
@@ -438,7 +439,27 @@ const appData = {
           "gpu": " NVIDIA GeForce GTX 1060 /AMD Radeon RX 570 / Intel Arc A380",
           "ram": "8 GB"
         }
+      },
+      {
+        "name": "Ship Graveyard Simulator 2",
+        "description": "Ship Graveyard Simulator 2 is a simulation game where players can explore and salvage ships in a realistic environment.",
+        "category": [
+          "Simulation",
+          "Multiplayer",
+          "Open World"
+        ],
+        "version": "1.5.3",
+        "size": "12 GB",
+        "isNew": true,
+        "image": "static/images/games/shipgraveyard2.jpg",
+        "downloadUrl": "https://drive.google.com/file/d/1AcojFYb3ySMVAODAIbN_eVAU3RBDDnAq/view?usp=drive_link",
+         "recommendedSpecs": {
+          "cpu": "Intel Core i5",
+          "gpu": "Intel Arc 580 / GTX 1660 TI",
+          "ram": "12 GB"
+        }
       }
+    
     ]
   },
   "programs": {
