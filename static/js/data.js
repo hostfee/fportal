@@ -13,6 +13,8 @@ const appData = {
       "Strategy",
       "Stealth",
       "Multiplayer",
+      "Survival",
+      "Horror"
     ],
     "apps": [
       {
@@ -456,6 +458,29 @@ const appData = {
          "recommendedSpecs": {
           "cpu": "Intel Core i5",
           "gpu": "Intel Arc 580 / GTX 1660 TI",
+          "ram": "12 GB"
+        }
+      },
+      {
+        "name": "Sons of the Forest",
+        "description": "Sons of the Forest is a survival horror game where players must survive on a mysterious island filled with cannibals and other dangers.",
+        "category": [
+          "Survival",
+          "Multiplayer",
+          "Open World",
+          "Horror",
+          "Adventure",
+          "Action",
+          "RPG"
+        ],
+        "version": "53951",
+        "size": "15 GB",
+        "isNew": true,
+        "image": "static/images/games/sonsoftheforest.jpg",
+        "downloadUrl": "https://drive.google.com/file/d/1KtVtg60qnAIDittQwhBF78DEiSobTVxN/view?usp=sharing",
+         "recommendedSpecs": {
+          "cpu": "Intel Core I5-8400 / AMD Ryzen 3 3300X",
+          "gpu": "NVIDIA GeForce GTX 1060 3GB / AMD Radeon RX 570 4GB",
           "ram": "12 GB"
         }
       }
