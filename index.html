@@ -13,6 +13,7 @@
     <title>FPortal - Software Collection</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="static/styles/main.css">
+    <link rel="stylesheet" href="static/styles/theme-toggle.css">
 </head>
 <body>
     <div class="background">
@@ -39,11 +40,39 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                     <div id="searchResults" class="search-results"></div>
                 </div>
-                <button class="theme-toggle">
-                </button>
-                <button class="mobile-menu-toggle">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-                </button>
+                <label class="bb8-toggle">
+    <input class="bb8-toggle__checkbox" type="checkbox">
+    <div class="bb8-toggle__container">
+        <div class="bb8-toggle__scenery">
+            <div class="bb8-toggle__star"></div>
+            <div class="bb8-toggle__star"></div>
+            <div class="bb8-toggle__star"></div>
+            <div class="bb8-toggle__star"></div>
+            <div class="bb8-toggle__star"></div>
+            <div class="bb8-toggle__star"></div>
+            <div class="bb8-toggle__star"></div>
+            <div class="tatto-1"></div>
+            <div class="tatto-2"></div>
+            <div class="gomrassen"></div>
+            <div class="hermes"></div>
+            <div class="chenini"></div>
+            <div class="bb8-toggle__cloud"></div>
+            <div class="bb8-toggle__cloud"></div>
+            <div class="bb8-toggle__cloud"></div>
+        </div>
+        <div class="bb8">
+            <div class="bb8__head-container">
+                <div class="bb8__antenna"></div>
+                <div class="bb8__antenna"></div>
+                <div class="bb8__head"></div>
+            </div>
+            <div class="bb8__body"></div>
+        </div>
+        <div class="artificial__hidden">
+            <div class="bb8__shadow"></div>
+        </div>
+    </div>
+</label>
             </div>
         </div>
     </header>
@@ -81,8 +110,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
                         Explore
                     </a>
-                    <button class="hero-btn btn-secondary theme-toggle">
-                    </button>
+                                   
                 </div>
             </div>
         </section>
