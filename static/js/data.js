@@ -503,7 +503,7 @@ const appData = {
       },
       {
         "name": "Rainmeter",
-        "description": "Clock Skin",
+        "description": "Widgets",
         "category": "multimedia",
         "version": "4.5.23",
         "size": "512 MB",
@@ -530,7 +530,7 @@ const appData = {
       },
       {
         "name": "ToDoApp",
-        "description": "Simple ToDoList",
+        "description": "Simple Task Manager",
         "category": "",
         "version": "1.0",
         "size": "100 KB",
