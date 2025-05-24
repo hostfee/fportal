@@ -125,6 +125,36 @@ body {
     50% { transform: translate(80px, -80px); }
 }
 
+.btn {
+  display: grid;
+  place-items: center;
+  background: #e3edf7;
+  padding: 0.6em;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0);
+  cursor: pointer;
+  transition: transform 0.5s;
+}
+
+.btn:hover {
+  box-shadow: inset 4px 4px 6px -1px rgba(0,0,0,0.2),
+	      inset -4px -4px 6px -1px rgba(255,255,255,0.7),
+	      -0.5px -0.5px 0px rgba(255,255,255,1),
+	      0.5px 0.5px 0px rgba(0,0,0,0.15),
+	      0px 12px 10px -10px rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.1);
+  transform: translateY(0.5em);
+}
+
+.btn svg {
+  transition: transform 0.5s;
+}
+
+.btn:hover svg {
+  transform: scale(0.9);
+  fill: #0092E4;
+}
+
 header {
     background: var(--glass-bg);
     backdrop-filter: blur(10px);
@@ -963,46 +993,6 @@ footer {
     margin-bottom: 8px;
     color: var(--modal-secondary-text-color);
 }
-
-
-.button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 15px;
-    gap: 15px;
-    background-color: #181717;
-    outline: 3px #181717 solid;
-    outline-offset: -3px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    transition: 400ms;
-  }
-
-  .button .text {
-    color: white;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 1em;
-    transition: 400ms;
-  }
-
-  .button svg path {
-    transition: 400ms;
-  }
-
-  .button:hover {
-    background-color: transparent;
-  }
-
-  .button:hover .text {
-    color: #181717;
-  }
-
-  .button:hover svg path {
-    fill: #181717;
-  }
 
 .filter-container {
     position: relative;
